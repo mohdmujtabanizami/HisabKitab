@@ -846,7 +846,7 @@ function App() {
     const dataObj = { monthlyDataMap };
     try {
       if (isOnline) {
-        await axios.post('http://localhost:5000/api/sync', { email: user.email || user.phoneNumber, data: dataObj });
+        await axios.post('https://hisabkitab-kxz0.onrender.com/api/sync', { email: user.email || user.phoneNumber, data: dataObj });
         alert(`Backup successful for account: ${user.email || user.phoneNumber}! Your data is securely saved on cloud.`);
       } else {
         alert("You are offline! Connect to the internet to complete cloud backup.");
@@ -863,7 +863,7 @@ function App() {
     if (!inputEmail) return;
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/sync/${inputEmail.trim()}`);
+      const res = await axios.get(`https://hisabkitab-kxz0.onrender.com/api/sync/${inputEmail.trim()}`);
       if (res.data && res.data.success && res.data.data) {
         const d = res.data.data;
         if (d.monthlyDataMap) {
