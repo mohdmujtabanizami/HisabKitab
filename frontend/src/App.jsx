@@ -1224,8 +1224,8 @@ function App() {
                     </p>
                 </div>
                 <div style={{fontSize: '16px', fontWeight: '900', color: isOverBudget ? 'var(--danger)' : 'var(--success)', background: 'var(--card-bg)', padding: '12px 20px', borderRadius: '12px', border: '1px solid var(--border)'}}>
-                    {isOverBudget ? `Over Budget by ₹{grandTotal - allowedSpendLimit}` : `Safe to Spend Left: ₹{safeSpentLeft}`}
-                </div>
+    {isOverBudget ? `Over Budget by ₹${grandTotal - allowedSpendLimit}` : `Safe to Spend Left: ₹ ${allowedSpendLimit - grandTotal}`}
+</div>
             </div>
         )}
 
