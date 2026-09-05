@@ -144,7 +144,7 @@ const translations = {
     subs: "🔄 आवर्ती सदस्यताएं",
     addSub: "+ जोड़ें",
     outsideFood: "🍔 बाहर का खान-पान (सिर्फ ट्रैक)",
-    outsideHint: "यहाँ के पैसे कुल खर्च में नहीं जुड़ते। बैलेंस से काटने के लिए उन्हें डेली खर्च में भी लिखें।",
+    outsideHint: "यहाँ के पैसे कुल खर्च में नहीं जुड़ते। बैलेंस से काटने के लिए उन्हें डेली खर्च में भी लिखें।",
     monthTotal: "कुल",
     analytics: "📊 खर्च का विश्लेषण और विवरण",
     paymentModes: "💳 भुगतान के तरीके",
@@ -171,7 +171,7 @@ const translations = {
     udhaarTracker: "🤝 लेन-देन खाता",
     toReceive: "पैसे लेने हैं",
     toPay: "पैसे देने हैं",
-    addUdhaar: "+ रिकॉर्ड जोड़ें",
+    addUdhaar: "+ रिकॉर्ड जोड़ें",
     personName: "व्यक्ति का नाम",
     totalAmt: "राशि",
     settledAmt: "चुकाई गई राशि",
@@ -193,8 +193,8 @@ const translations = {
       "गलती से हटाई गई बजट श्रेणियों को पुनर्स्थापित करने के लिए रीसायकल बिन।",
       "रिकवरी प्रश्नों के साथ ऐप-स्तरीय 4-अंकों की पिन सुरक्षा।"
     ],
-    creatorText: "डिज़ाइन और निर्मित",
-    creatorName: "मोहम्मद मुजतबा निज़ामी",
+    creatorText: "डिज़ािन और निर्मित",
+    creatorName: "मोहम्मद मुजतबा निज़ामी",
     cancel: "रद्द करें",
     savePin: "पिन सहेजें",
     appLocked: "ऐप लॉक है",
@@ -214,7 +214,7 @@ const translations = {
     estimatedMonthsLbl: "⏳ अनुमानित महीने: ",
     paidLbl: "भुगतान हो गया",
     notesModalTitle: "खर्च के नोट्स और विवरण",
-    notesTip: "टिप: इस खर्च को अपने निश्चित बजट (Fixed Budget) में ऑटोमैटिक जोड़ने के लिए \"निश्चित बजट श्रेणी से लिंक करें\" पर टिक करें!",
+    notesTip: "टिप: इस खर्च को अपने निश्चित बजट (Fixed Budget) में ऑटोमैटिक जोड़ने के लिए \"निश्चित बजट श्रेणी से लिंक करें\" पर टिक करें!",
     notePlaceholder: "यह किस लिए है? जैसे दूध",
     linkFixedCat: "निश्चित बजट श्रेणी से लिंक करें",
     selectCategoryLbl: "श्रेणी चुनें:",
@@ -229,116 +229,115 @@ const translations = {
     shareOnWhatsapp: "व्हाट्सएप पर शेयर करें 💬"
   },
   ur: {
-title: "حساب کتاب",
-subtitle: "ٹریکر",
-online: "🟢 آن لائن",
-offline: "🔴 آف لائن",
-income: "ماہانہ آمدنی",
-target: "بچت کا ہدف",
-spent: "کل خرچ",
-remaining: "بقیہ رقم",
-noSpend: "بغیر خرچ کے دن!",
-aiTools: "اے آئی اور پیشہ ورانہ اوزار",
-aiDesc: "آواز، بل اسکین، رپورٹ، جی میل بیک اپ اور بحالی۔",
-speak: "🔊 خلاصہ سنیں",
-scanBill: "📷 بل اسکین کریں",
-monthReport: "📊 ماہانہ رپورٹ",
-whatsapp: "💬 واٹس ایپ پر شیئر کریں",
-backup: "☁️ جی میل بیک اپ",
-restore: "📂 ڈیٹا بحال کریں",
-pdf: "🖨️ پرنٹ / پی ڈی ایف",
-goalPlanner: "🎯 ہدف پر مبنی بچت کی منصوبہ بندی",
-goalPlaceholder: "ہدف (مثلاً نیا فون)",
-amount: "رقم",
-saveGoal: "ہدف محفوظ کریں",
-noGoal: "کوئی فعال ہدف مقرر نہیں ہے۔",
-subs: "🔄 بار بار ادا کی جانے والی سبسکرپشنز",
-addSub: "+ شامل کریں",
-outsideFood: "🍔 باہر کا کھانا (صرف ریکارڈ کے لیے)",
-outsideHint: "یہ رقم کل خرچ میں شامل نہیں ہوتی۔ اسے یومیہ اخراجات میں شامل کریں۔",
-monthTotal: "کل",
-analytics: "📊 اخراجات کا تجزیہ",
-paymentModes: "💳 ادائیگی کے طریقے",
-fixedUsage: "مقررہ بجٹ کا استعمال",
-dailyUsage: "یومیہ اخراجات کا استعمال",
-fixedBudget: "ماہانہ مقررہ بجٹ",
-category: "زمرہ",
-estimated: "تخمینہ",
-actual: "اصل ادائیگی",
-status: "بقیہ",
-addCategory: "+ زمرہ شامل کریں",
-dailyExpenses: "📅 یومیہ اخراجات",
-dailyTip: "مشورہ: خرچ شامل کرنے کے لیے '+' استعمال کریں۔",
-notes: "📝 نوٹس",
-recycleBin: "🗑️ ری سائیکل بن (حذف شدہ زمرے)",
-restoreBtn: "📁 بحال کریں",
-permDelete: "❌ مستقل طور پر حذف کریں",
-loginCloud: "☁️ لاگ اِن",
-logout: "🚪 لاگ آؤٹ",
-saved: "بچت",
-overspent: "زائد خرچ",
-balanced: "متوازن",
-lockedDay: "🔒 مقفل (آنے والا دن)",
-udhaarTracker: "🤝 لین دین کا حساب",
-toReceive: "وصول کرنے ہیں",
-toPay: "ادا کرنے ہیں",
-addUdhaar: "+ ریکارڈ شامل کریں",
-personName: "فرد کا نام",
-totalAmt: "رقم",
-settledAmt: "ادا شدہ",
-plannerTitle: "📋 موجودہ اور اگلے ماہ کی خریداری / منصوبے",
-currentMonthPlan: "اس ماہ کی خریداری اور سامان",
-nextMonthPlan: "اگلے ماہ کی خریداری اور سامان",
-menu: "مینو",
-lightMode: "☀️ روشن موڈ",
-darkMode: "🌙 تاریک موڈ",
-securityLock: "🔒 سیکیورٹی (ایپ لاک)",
-aboutApp: "ℹ️ حساب کتاب کے بارے میں",
-aboutDesc: "حساب کتاب ایک جدید اور بہترین ذاتی مالیاتی ٹریکر ہے جو ماہانہ بجٹ کے انتظام، روزمرہ کے اخراجات، بچت کے اہداف کی منصوبہ بندی اور ڈیٹا کو محفوظ رکھنے میں مدد کرتا ہے۔",
-keyFeatures: "اہم خصوصیات:",
-featureList: [
-  "آواز کے خلاصے اور تاریخ کی شناخت کے ساتھ خودکار بل کیمرہ اسکینر۔",
-  "جی میل کلاؤڈ بیک اپ اور مختلف آلات پر ڈیٹا کی بحالی۔",
-  "مکمل مقامی زبان کی معاونت (Localization)۔",
-  "اے آئی بجٹ تخمینہ اور واٹس ایپ پر شیئر کرنے کی سہولت۔",
-  "غلطی سے حذف شدہ بجٹ زمروں کو بحال کرنے کے لیے ری سائیکل بن۔",
-  "بازیابی کے سوالات کے ساتھ ایپ کی سطح پر چار ہندسوں کی پن سیکیورٹی۔"
-],
-creatorText: "ڈیزائن اور تخلیق کیا گیا",
-creatorName: "محمد مجتبیٰ نظامی",
-cancel: "منسوخ کریں",
-savePin: "پن محفوظ کریں",
-appLocked: "ایپ مقفل ہے",
-enterPin: "اپنا چار ہندسوں کا پن درج کریں",
-unlock: "اَن لاک کریں",
-forgotPass: "پاس ورڈ بھول گئے؟",
-resetUnlock: "ری سیٹ اور اَن لاک",
-backToPin: "پن پر واپس جائیں",
-aiForecastTitle: "✨ اے آئی تخمینہ اور بجٹ مشیر",
-safeLimitActive: "🟢 محفوظ خرچ کی حد فعال ہے",
-overBudgetAlert: "🚨 انتباہ: بجٹ سے زیادہ خرچ ہو گیا ہے!",
-today: "آج",
-targetAmountLbl: "ہدف کی رقم",
-monthlySpendingLbl: "ماہانہ خرچ",
-monthlySavingLbl: "ماہانہ بچت",
-savingsPctLbl: "بچت ٪",
-estimatedMonthsLbl: "⏳ اندازاً مہینے: ",
-paidLbl: "ادا کر دیا گیا",
-notesModalTitle: "اخراجات کے نوٹس اور تفصیلی بیان",
-notesTip: "مشورہ: اس خرچ کو خودکار طور پر مقررہ بجٹ میں شامل کرنے کے لیے \"ماہانہ مقررہ بجٹ کے زمرے سے منسلک کریں\" پر نشان لگائیں!",
-notePlaceholder: "یہ کس کے لیے تھا؟ مثلاً دودھ",
-linkFixedCat: "ماہانہ مقررہ بجٹ کے زمرے سے منسلک کریں",
-selectCategoryLbl: "زمرہ منتخب کریں:",
-chooseCategoryOpt: "-- مقررہ زمرہ منتخب کریں --",
-splitBtn: "تقسیم کریں",
-dayLabel: "دن",
-splitTitle: "بل کی تقسیم کا کیلکولیٹر",
-splitingText: "تقسیم کی جا رہی ہے",
-worthText: "مالیت:",
-howManyPeople: "کتنے افراد ہیں؟",
-perPersonShare: "فی فرد حصہ:",
-shareOnWhatsapp: "واٹس ایپ پر شیئر کریں 💬"
-
+    title: "حساب کتاب",
+    subtitle: "ٹریکر",
+    online: "🟢 آن لائن",
+    offline: "🔴 آف لائن",
+    income: "ماہانہ آمدنی",
+    target: "بچت کا ہدف",
+    spent: "کل خرچ",
+    remaining: "بقیہ رقم",
+    noSpend: "بغیر خرچ کے دن!",
+    aiTools: "اے آئی اور پیشہ ورانہ اوزار",
+    aiDesc: "آواز، بل اسکین، رپورٹ، جی میل بیک اپ اور بحالی۔",
+    speak: "🔊 خلاصہ سنیں",
+    scanBill: "📷 بل اسکین کریں",
+    monthReport: "📊 ماہانہ رپورٹ",
+    whatsapp: "💬 واٹس ایپ پر شیئر کریں",
+    backup: "☁️ جی میل بیک اپ",
+    restore: "📂 ڈیٹا بحال کریں",
+    pdf: "🖨️ پرنٹ / پی ڈی ایف",
+    goalPlanner: "🎯 ہدف پر مبنی بچت کی منصوبہ بندی",
+    goalPlaceholder: "ہدف (مثلاً نیا فون)",
+    amount: "رقم",
+    saveGoal: "ہدف محفوظ کریں",
+    noGoal: "کوئی فعال ہدف مقرر نہیں ہے۔",
+    subs: "🔄 بار بار ادا کی جانے والی سبسکرپشنز",
+    addSub: "+ شامل کریں",
+    outsideFood: "🍔 باہر کا کھانا (صرف ریکارڈ کے لیے)",
+    outsideHint: "یہ رقم کل خرچ میں شامل نہیں ہوتی۔ اسے یومیہ اخراجات میں شامل کریں۔",
+    monthTotal: "کل",
+    analytics: "📊 اخراجات کا تجزیہ",
+    paymentModes: "💳 ادائیگی کے طریقے",
+    fixedUsage: "مقررہ بجٹ کا استعمال",
+    dailyUsage: "یومیہ اخراجات کا استعمال",
+    fixedBudget: "ماہانہ مقررہ بجٹ",
+    category: "زمرہ",
+    estimated: "تخمینہ",
+    actual: "اصل ادائیگی",
+    status: "بقیہ",
+    addCategory: "+ زمرہ شامل کریں",
+    dailyExpenses: "📅 یومیہ اخراجات",
+    dailyTip: "مشورہ: خرچ شامل کرنے کے لیے '+' استعمال کریں۔",
+    notes: "📝 نوٹس",
+    recycleBin: "🗑️ ری سائیکل بن (حذف شدہ زمرے)",
+    restoreBtn: "📁 بحال کریں",
+    permDelete: "❌ مستقل طور پر حذف کریں",
+    loginCloud: "☁️ لاگ اِن",
+    logout: "🚪 لاگ آؤٹ",
+    saved: "بچت",
+    overspent: "زائد خرچ",
+    balanced: "متوازن",
+    lockedDay: "🔒 مقفل (آنے والا دن)",
+    udhaarTracker: "🤝 لین دین کا حساب",
+    toReceive: "وصول کرنے ہیں",
+    toPay: "ادا کرنے ہیں",
+    addUdhaar: "+ ریکارڈ شامل کریں",
+    personName: "فرد کا نام",
+    totalAmt: "رقم",
+    settledAmt: "ادا شدہ",
+    plannerTitle: "📋 موجودہ اور اگلے ماہ کی خریداری / منصوبے",
+    currentMonthPlan: "اس ماہ کی خریداری اور سامان",
+    nextMonthPlan: "اگلے ماہ کی خریداری اور سامان",
+    menu: "مینو",
+    lightMode: "☀️ روشن موڈ",
+    darkMode: "🌙 تاریک موڈ",
+    securityLock: "🔒 سیکیورٹی (ایپ لاک)",
+    aboutApp: "ℹ️ حساب کتاب کے بارے میں",
+    aboutDesc: "حساب کتاب ایک جدید اور بہترین ذاتی مالیاتی ٹریکر ہے جو ماہانہ بجٹ کے انتظام، روزمرہ کے اخراجات، بچت کے اہداف کی منصوبہ بندی اور ڈیٹا کو محفوظ رکھنے میں مدد کرتا ہے۔",
+    keyFeatures: "اہم خصوصیات:",
+    featureList: [
+      "آواز کے خلاصے اور تاریخ کی شناخت کے ساتھ خودکار بل کیمرہ اسکینر۔",
+      "جی میل کلاؤڈ بیک اپ اور مختلف آلات پر ڈیٹا کی بحالی۔",
+      "مکمل مقامی زبان کی معاونت (Localization)۔",
+      "اے آئی بجٹ تخمینہ اور واٹس ایپ پر شیئر کرنے کی سہولت۔",
+      "غلطی سے حذف شدہ بجٹ زمروں کو بحال کرنے کے لیے ری سائیکل بن۔",
+      "بازیابی کے سوالات کے ساتھ ایپ کی سطح پر چار ہندسوں کی پن سیکیورٹی۔"
+    ],
+    creatorText: "ڈیزائن اور تخلیق کیا گیا",
+    creatorName: "محمد مجتبیٰ نظامی",
+    cancel: "منسوخ کریں",
+    savePin: "پن محفوظ کریں",
+    appLocked: "ایپ مقفل ہے",
+    enterPin: "اپنا چار ہندسوں کا پن درج کریں",
+    unlock: "اَن لاک کریں",
+    forgotPass: "پاس ورڈ بھول گئے؟",
+    resetUnlock: "ری سیٹ اور اَن لاک",
+    backToPin: "پن پر واپس جائیں",
+    aiForecastTitle: "✨ اے آئی تخمینہ اور بجٹ مشیر",
+    safeLimitActive: "🟢 محفوظ خرچ کی حد فعال ہے",
+    overBudgetAlert: "🚨 انتباہ: بجٹ سے زیادہ خرچ ہو گیا ہے!",
+    today: "آج",
+    targetAmountLbl: "ہدف کی رقم",
+    monthlySpendingLbl: "ماہانہ خرچ",
+    monthlySavingLbl: "ماہانہ بچت",
+    savingsPctLbl: "بچت ٪",
+    estimatedMonthsLbl: "⏳ اندازاً مہینے: ",
+    paidLbl: "ادا کر دیا گیا",
+    notesModalTitle: "اخراجات کے نوٹس اور تفصیلی بیان",
+    notesTip: "مشورہ: اس خرچ کو خودکار طور پر مقررہ بجٹ میں شامل کرنے کے لیے \"ماہانہ مقررہ بجٹ کے زمرے سے منسلک کریں\" پر نشان لگائیں!",
+    notePlaceholder: "یہ کس کے لیے تھا؟ مثلاً دودھ",
+    linkFixedCat: "ماہانہ مقررہ بجٹ کے زمرے سے منسلک کریں",
+    selectCategoryLbl: "زمرہ منتخب کریں:",
+    chooseCategoryOpt: "-- مقررہ زمرہ منتخب کریں --",
+    splitBtn: "تقسیم کریں",
+    dayLabel: "دن",
+    splitTitle: "بل کی تقسیم کا کیلکولیٹر",
+    splitingText: "تقسیم کی جا رہی ہے",
+    worthText: "مالیت:",
+    howManyPeople: "کتنے افراد ہیں؟",
+    perPersonShare: "فی فرد حصہ:",
+    shareOnWhatsapp: "واٹس ایپ پر شیئر کریں 💬"
   }
 };
 
@@ -744,6 +743,8 @@ function App() {
   };
 
   let totalFixed = fixedData.reduce((acc, item) => acc + calculateSum(item.paid), 0);
+  let totalEstimated = fixedData.reduce((acc, item) => acc + calculateSum(item.target), 0);
+  let totalRemainingFixed = totalEstimated - totalFixed;
   let totalBahar = calculateSum(baharData); 
   let totalSubs = subs.reduce((acc, item) => acc + (item.isPaid ? Number(item.amt || 0) : 0), 0);
   
@@ -1297,7 +1298,7 @@ function App() {
                 )})}
             </div>
 
-           
+            
             <div className="pro-card">
                 <div className="pro-card-title mb-5">{t.subs} ({subs.length})</div>
                 
@@ -1355,7 +1356,7 @@ function App() {
             </div>
         </div>
 
-      
+        
         <div className="pro-card mb-40" style={{background: 'var(--bahar-bg)', borderColor: 'var(--bahar-border)', padding: '25px', marginBottom: '35px', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0,0,0,0.04)'}}>
             <div className="pro-card-title" style={{color: 'var(--bahar-text)', fontSize: '18px', fontWeight: '800'}}>{t.outsideFood}</div>
             <p style={{fontSize:'13px', color:'var(--text-muted)', marginBottom:'12px'}}>{t.outsideHint}</p>
@@ -1365,7 +1366,7 @@ function App() {
             </div>
         </div>
 
-      
+        
         <div className="analytics-card" style={{padding: '25px', marginBottom: '35px'}}>
             <div className="section-title"><span>{t.analytics}</span></div>
             <div className="analytics-grid" style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))', gap:'20px'}}>
@@ -1394,7 +1395,7 @@ function App() {
             </div>
         </div>
 
-      
+        
         <div className="section-title"><span>{t.fixedBudget}</span></div>
         <div className="card" style={{padding: '25px', marginBottom: '35px'}}>
             <div className="table-responsive">
@@ -1472,6 +1473,18 @@ function App() {
                     </tbody>
                 </table>
             </div>
+            
+            {/* --- Total Summary Row --- */}
+            <div className="total-summary-row">
+                <div className="summary-col-label">Total</div>
+                <div className="summary-col-est">₹{totalEstimated}</div>
+                <div className="summary-col-paid">₹{totalFixed}</div>
+                <div className="summary-col-status" style={{ color: totalRemainingFixed >= 0 ? 'var(--success)' : 'var(--danger)' }}>
+                    {totalRemainingFixed >= 0 ? `₹${totalRemainingFixed} Saved` : `₹${Math.abs(totalRemainingFixed)} Overspent`}
+                </div>
+                <div style={{ width: '40px' }}></div>
+            </div>
+
             <button className="btn-add" onClick={() => setFixedData([...fixedData, {name: "", target: '', paid: ''}])}>{t.addCategory}</button>
         </div>
 
@@ -1506,7 +1519,7 @@ function App() {
             </div>
         )}
 
-      
+        
         <div className="section-title"><span>{t.dailyExpenses}</span></div>
         <p style={{fontSize:'12px', color:'var(--text-muted)', marginBottom:'15px'}}>{t.dailyTip}</p>
         <div className="days-grid" style={{marginBottom: '35px'}}>
@@ -1560,7 +1573,7 @@ function App() {
             }
         </div>
 
-      
+        
         <div className="pro-card mb-35" style={{padding: '25px', marginBottom: '35px'}}>
             <div className="pro-card-title mb-15" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
                 🤝 {t.udhaarTracker}
@@ -1581,7 +1594,7 @@ function App() {
                 </div>
             </div>
 
-           
+            
             <div style={{display: 'flex', gap: '10px', flexWrap: 'wrap', background: 'var(--input-bg)', padding: '15px', borderRadius: '14px', border: '1px solid var(--border)', marginBottom: '20px'}}>
                 <select className="regular-input" style={{flex: 1, minWidth: '130px', marginBottom: 0, fontWeight: '700', color: 'var(--primary)', borderRadius: '10px'}} value={newUdhaarType} onChange={e => setNewUdhaarType(e.target.value)}>
                     <option value="receive">{t.toReceive}</option>
@@ -1613,7 +1626,7 @@ function App() {
                 }}>{t.addUdhaar}</button>
             </div>
 
-           
+            
             <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                 {udhaarList.length === 0 ? (
                     <p style={{fontSize: '13px', color: 'var(--text-muted)', fontStyle: 'italic', textAlign: 'center'}}>No records added for this month.</p>
