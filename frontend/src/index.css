@@ -1,37 +1,22 @@
-/* ==========================================================================
-   HisabKitab — stylesheet v3
-   A modern household ledger: warm paper surfaces, deep ledger-green brand,
-   brass/gold for goals, a thin ledger-red rule kept from the traditional
-   account-book margin line — now with more depth, a refined type scale,
-   and a set of small "live" interactions (status pulse, shimmering
-   progress, animated counters, toast, skeleton loaders, milestone
-   celebration) that make the numbers feel like they're actually updating.
-   ========================================================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@500;600;700&display=swap');
 
-/* --------------------------------------------------------------------------
-   1. Tokens
-   -------------------------------------------------------------------------- */
 :root{
-  /* surfaces */
+
   --paper:#F7F5EE;
   --card-bg:#FFFFFF;
   --card-bg-glass: rgba(255,255,255,0.72);
   --input-bg:#F1EEE2;
-
-  /* ink */
   --text-main:#182420;
   --text-muted:#69746D;
   --text-faint:#9AA39C;
 
-  /* structure */
+
   --border:rgba(24,36,32,0.12);
   --border-strong:rgba(24,36,32,0.22);
   --shadow-color:rgba(18,26,24,0.08);
   --shadow-color-lift:rgba(18,26,24,0.16);
 
-  /* brand */
+
   --primary:#0E6353;
   --primary-2:#128772;
   --primary-3:#1DA88E;
@@ -41,7 +26,7 @@
   --accent-gold-2:#E2B655;
   --rule-red:#A23B3B;
 
-  /* semantic */
+
   --success:#1C8F6D;
   --success-bg:rgba(28,143,109,0.12);
   --danger:#C1443C;
@@ -50,36 +35,26 @@
   --info-bg:rgba(46,111,163,0.12);
   --badge-overspent-bg:var(--danger-bg);
 
-  /* outside-food accent */
+
   --bahar-bg:#FBF1DE;
   --bahar-border:#E6C98B;
   --bahar-text:#8A6216;
 
-  /* type */
+
   --font-display:'Fraunces','Noto Sans Devanagari','Noto Nastaliq Urdu',serif;
   --font-body:'Inter','Noto Sans Devanagari','Noto Nastaliq Urdu',sans-serif;
 
-  /* radius scale */
+
   --radius-sm:10px;
   --radius-md:16px;
   --radius-lg:24px;
   --radius-xl:30px;
 
-  /* motion */
   --ease:cubic-bezier(.22,1,.36,1);
   --ease-fast:cubic-bezier(.4,0,.2,1);
   --ease-spring:cubic-bezier(.34,1.56,.64,1);
 }
 
-/* --------------------------------------------------------------------------
-   Breakpoint system used throughout this file:
-     Mobile   :  up to 599px  (phones, portrait & landscape)
-     Tablet   :  600px – 1023px (iPad/Android tablets, small laptops)
-     Laptop+  :  1024px and up (laptops, desktops, large tablets landscape)
-   Layout-critical rules live inline near the component they affect;
-   this keeps each section self-contained instead of one giant media
-   query block at the bottom.
-   -------------------------------------------------------------------------- */
 
 [data-theme='dark']{
   --paper:#0C1211;
@@ -118,9 +93,6 @@
   --bahar-text:#E1BE83;
 }
 
-/* --------------------------------------------------------------------------
-   2. Reset & base
-   -------------------------------------------------------------------------- */
 *, *::before, *::after{ box-sizing:border-box; }
 
 html{ color-scheme:light; scroll-behavior:smooth; }
@@ -169,7 +141,6 @@ a{ color:var(--primary); }
   border-radius:6px;
 }
 
-/* live scrollbars */
 *{ scrollbar-width:thin; scrollbar-color:var(--border-strong) transparent; }
 *::-webkit-scrollbar{ width:8px; height:8px; }
 *::-webkit-scrollbar-thumb{ background:var(--border-strong); border-radius:8px; }
@@ -180,11 +151,9 @@ a{ color:var(--primary); }
   *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
 }
 
-/* momentum scrolling for horizontally/vertically scrollable panes on iOS */
+
 .table-responsive, .sub-list-container, .sidebar-content{ -webkit-overflow-scrolling:touch; }
 
-/* on touch devices (phones/tablets without a mouse) enlarge small tap
-   targets so nothing sits under the ~44px comfortable-tap-size guideline */
 @media (hover:none) and (pointer:coarse){
   .btn-notes{ padding:9px 13px; font-size:12.5px; }
   .btn-delete, .btn-permanent-delete{ min-height:38px; }
@@ -194,9 +163,7 @@ a{ color:var(--primary); }
   .status-indicator{ padding:7px 13px 7px 11px; }
 }
 
-/* --------------------------------------------------------------------------
-   3. Header / masthead — sticky glass bar
-   -------------------------------------------------------------------------- */
+
 header{
   position:sticky;
   top:0;
@@ -242,7 +209,7 @@ header{
   box-sizing:border-box;
 }
 
-/* radar-ping "live" dot, layered on top of the emoji already in the string */
+
 .status-online.blinking{ position:relative; }
 .status-online.blinking::before{
   content:"";
@@ -285,10 +252,6 @@ header{
 .stylish-month-select:hover{ background-color:rgba(255,255,255,0.24); }
 .stylish-month-select:focus-visible{ border-color:rgba(255,255,255,0.6); }
 
-/* The dropdown LIST is rendered by the OS/browser with its own default
-   background (usually white), which the select's own white text then
-   inherits — invisible text on a white list until a row is hovered.
-   Give the options their own readable colors instead of inheriting #fff. */
 .stylish-month-select option{
   color:var(--text-main);
   background:var(--card-bg);
@@ -301,31 +264,6 @@ header{
   background:var(--primary-light);
 }
 
-/* --------------------------------------------------------------------------
-   3b. Custom month dropdown (replaces the native <select>)
-   -------------------------------------------------------------------------- 
-   Native <select> popups are rendered by the OS/browser: in Chrome/Edge the
-   row under the mouse always gets a system blue highlight that CSS cannot
-   override, so it can look "stuck" blue after the cursor moves. This is a
-   fully custom dropdown (a button + our own list) with the exact same pill
-   look, so every color, hover, and selected state is ours to control.
-
-   Markup:
-     <div class="month-dropdown" data-open="false">
-       <button type="button" class="month-trigger" aria-haspopup="listbox" aria-expanded="false">
-         <span class="month-trigger-label">September 2026</span>
-         <svg class="month-trigger-caret" viewBox="0 0 10 6" width="10" height="6">
-           <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-         </svg>
-       </button>
-       <ul class="month-menu" role="listbox">
-         <li class="month-menu-item is-selected" role="option" aria-selected="true" data-value="2026-09">September 2026</li>
-         <li class="month-menu-item" role="option" data-value="2026-08">August 2026</li>
-         ...
-       </ul>
-     </div>
-   Minimal JS to wire it up (toggle open, pick item, close on outside
-   click/Escape) — see the chat reply for the ready-to-paste script. */
 .month-dropdown{
   position:relative;
   flex:1;
@@ -435,9 +373,6 @@ header{
   color:transparent;
 }
 
-/* --------------------------------------------------------------------------
-   4. Sidebar
-   -------------------------------------------------------------------------- */
 .sidebar-overlay{
   position:fixed; inset:0;
   background:rgba(8,14,13,0.5);
@@ -510,9 +445,6 @@ header{
 .btn-logout{ background:var(--danger-bg); color:var(--danger); }
 .btn-logout:hover{ filter:brightness(0.95); }
 
-/* --------------------------------------------------------------------------
-   5. Modals — glass
-   -------------------------------------------------------------------------- */
 .custom-modal-overlay{
   position:fixed; inset:0;
   background:rgba(8,14,13,0.58);
@@ -542,9 +474,6 @@ header{
 .close-btn{ position:absolute; top:16px; right:18px; cursor:pointer; font-size:18px; color:var(--text-muted); transition:color .15s var(--ease-fast), transform .15s var(--ease-fast); }
 .close-btn:hover{ color:var(--danger); transform:scale(1.1) rotate(90deg); }
 
-/* --------------------------------------------------------------------------
-   6. Shared form controls & buttons
-   -------------------------------------------------------------------------- */
 .regular-input, .pin-input{
   width:100%;
   min-width:0;
@@ -592,9 +521,7 @@ header{
 .btn-action-tool:active{ transform:translateY(0) scale(0.97); }
 
 .btn-add{
-  /* auto-sized by default so it behaves inside flex rows (subs / udhaar
-     add-forms); only the standalone "+ Add Category" button below is
-     forced full-width, via the .card > .btn-add rule further down */
+
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -615,8 +542,6 @@ header{
 .btn-add:hover{ transform:translateY(-1px); box-shadow:0 12px 24px rgba(14,99,83,0.3); }
 .btn-add:active{ transform:translateY(0) scale(0.97); }
 
-/* the one place .btn-add really should span the full row: the standalone
-   "+ Add Category" button, a direct child of the fixed-budget .card */
 .card > .btn-add{
   display:flex;
   width:100%;
@@ -638,14 +563,7 @@ header{
 .btn-delete:hover{ filter:brightness(0.95); transform:scale(1.06); }
 .btn-delete:active{ transform:scale(0.94); }
 
-/* Permanent-delete: icon-only danger button used in the Recycle Bin row
-   (same footprint as .btn-delete). The button's own text label ("Permanent
-   Delete") is kept in the markup for accessibility/screen-readers but is
-   visually hidden — font-size:0 collapses it to nothing — and a plain "✕"
-   is drawn instead via ::before. No HTML change needed. An explicit
-   hover/focus/disabled state and a brief "armed" pulse are included, which
-   you can toggle from JS for a press-and-hold / are-you-sure confirmation
-   pattern before the delete actually fires. */
+
 .btn-permanent-delete{
   display:inline-flex;
   align-items:center;
@@ -657,9 +575,9 @@ header{
   background:var(--danger-bg);
   border:1px solid transparent;
   border-radius:8px;
-  font-size:0;         /* hides the original text label */
+  font-size:0;       
   line-height:1;
-  color:transparent;   /* belt-and-braces in case the label isn't plain text */
+  color:transparent; 
   transition:background-color .15s var(--ease-fast), border-color .15s var(--ease-fast),
              transform .12s var(--ease-fast), box-shadow .15s var(--ease-fast);
 }
@@ -679,8 +597,7 @@ header{
 .btn-permanent-delete:hover::before{ color:#fff; }
 .btn-permanent-delete:active{ transform:scale(0.94); }
 .btn-permanent-delete:disabled{ opacity:0.5; cursor:not-allowed; transform:none; box-shadow:none; }
-/* optional confirm-armed state: add this class from JS on first click,
-   remove it on the second click / after a timeout */
+
 .btn-permanent-delete.is-armed{
   background:var(--danger);
   animation:hb-arm-pulse 1s var(--ease-fast) infinite;
@@ -728,9 +645,6 @@ header{
 }
 .btn-notes:hover{ background:var(--primary-light); border-color:var(--primary); color:var(--primary-dark); transform:translateY(-1px); }
 
-/* --------------------------------------------------------------------------
-   7. Lock screen
-   -------------------------------------------------------------------------- */
 .lock-screen{
   min-height:100vh;
   display:flex; align-items:center; justify-content:center;
@@ -752,9 +666,6 @@ header{
 }
 .lock-box h2{ margin-bottom:6px; font-size:22px; }
 
-/* --------------------------------------------------------------------------
-   8. Layout shell
-   -------------------------------------------------------------------------- */
 .container{
   max-width:1180px;
   margin:0 auto;
@@ -780,9 +691,7 @@ header{
 }
 [dir='rtl'] .section-title span::before{ left:auto; right:0; }
 
-/* --------------------------------------------------------------------------
-   9. Pro / dashboard cards — layered depth + hover lift
-   -------------------------------------------------------------------------- */
+
 .pro-card{
   background:var(--card-bg);
   border:1px solid var(--border);
@@ -811,10 +720,7 @@ header{
   gap:22px;
 }
 
-/* Summary row (Monthly Income / Savings Target / Total Spent / Remaining) —
-   flex with a shared justify-content instead of an equal-width grid, so
-   each figure keeps its own natural width and the four items sit with
-   genuinely equal gaps regardless of how long the number is. */
+
 .dashboard-card{
   position:relative;
   display:flex;
@@ -874,13 +780,10 @@ header{
 .dash-editable:focus{ outline:none; border-bottom-color:var(--primary); }
 
 .dash-value-wrap{ font-weight:700; transition:color .3s var(--ease-fast); }
-/* the Spent/Remaining figures use an inline 30px font-size in the markup;
-   override it (with !important, since inline styles otherwise always win)
-   so they shrink gracefully on narrow phones instead of overflowing */
+
 .dash-value-wrap span{ font-size:clamp(19px, 4vw, 30px) !important; }
 
-/* small up/down trend chip you can drop next to any dash figure, e.g.
-   <span class="trend-chip trend-up">+8% vs last month</span> */
+
 .trend-chip{
   display:inline-flex;
   align-items:center;
@@ -924,21 +827,12 @@ header{
   100%{ box-shadow:0 0 0 0 rgba(190,138,42,0); }
 }
 
-/*
-  Live-update flash: toggle this class briefly from JS (e.g. for ~600ms)
-  on .dash-value-wrap or any number node whenever its value changes, to
-  give the UI a "live data" feel without any extra markup.
-  el.classList.add('flash-update'); setTimeout(() => el.classList.remove('flash-update'), 650);
-*/
 .flash-update{ animation:hb-flash .6s var(--ease-fast); }
 @keyframes hb-flash{
   0%{ background-color:var(--primary-light); border-radius:6px; }
   100%{ background-color:transparent; }
 }
 
-/* Skeleton loader: swap a number's markup for <span class="skeleton
-   skeleton-text"></span> while a value is being fetched/recalculated,
-   so the dashboard never shows a blank flash between states. */
 .skeleton{
   position:relative;
   display:inline-block;
@@ -957,9 +851,7 @@ header{
 [data-theme='dark'] .skeleton::after{ background:linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
 .skeleton-text{ width:88px; height:1.1em; vertical-align:middle; }
 
-/* --------------------------------------------------------------------------
-   10. Subscriptions list
-   -------------------------------------------------------------------------- */
+
 .sub-list-container{
   max-height:260px;
   overflow-y:auto;
@@ -978,16 +870,14 @@ header{
 .sub-item-row:hover{ border-color:var(--border-strong); transform:translateX(2px); }
 .sub-item-row.opacity-fixed{ opacity:0.55; }
 
-/* checkbox refresh */
+
 input[type='checkbox']{
   accent-color:var(--primary);
   width:16px; height:16px;
   cursor:pointer;
 }
 
-/* --------------------------------------------------------------------------
-   11. Analytics — usage bars + payment-mode breakdown
-   -------------------------------------------------------------------------- */
+
 .analytics-card{
   background:var(--card-bg);
   border:1px solid var(--border);
@@ -1037,12 +927,7 @@ input[type='checkbox']{
   100%{ transform:translateX(100%); }
 }
 
-/* Daily Expenses Usage bar → blue instead of green. Add class
-   "analytic-bar-fill--info" to that specific bar's fill element:
-     <div class="analytic-bar-fill analytic-bar-fill--info" style="width:3%">
-   The nth-of-type fallback below also catches it automatically if the two
-   usage blocks are the 1st/2nd .analytic-item in the grid, so this works
-   even before the markup is touched. */
+
 .analytic-item:nth-of-type(2) .analytic-bar-fill,
 .analytic-bar-fill--info{
   background:linear-gradient(90deg, var(--info), #4f8fc9);
@@ -1061,19 +946,6 @@ input[type='checkbox']{
   margin-inline-start:2px;
 }
 
-/* Payment Modes Breakdown — section divider + a proper mini-card grid.
-   Wrap the heading + grid like:
-     <div class="payment-modes-section">
-       <h3 class="payment-modes-heading">💳 Payment Modes Breakdown</h3>
-       <div class="payment-modes-grid">
-         <div class="payment-mode-card">
-           <span class="payment-mode-label">UPI</span>
-           <span class="payment-mode-amount">₹26393</span>
-         </div>
-         ...
-       </div>
-     </div>
-*/
 .payment-modes-section{
   margin-top:24px;
   padding-top:20px;
@@ -1135,9 +1007,6 @@ input[type='checkbox']{
 }
 [data-theme='dark'] .payment-mode-amount{ color:var(--primary-3); }
 
-/* --------------------------------------------------------------------------
-   12. Fixed-budget table (ledger style) — hover rows
-   -------------------------------------------------------------------------- */
 .card{
   background:var(--card-bg);
   border:1px solid var(--border);
@@ -1150,8 +1019,7 @@ input[type='checkbox']{
   overflow-x:auto;
   border-radius:var(--radius-sm);
 }
-/* subtle fade on the right edge hints that the ledger table scrolls
-   sideways on narrow screens, without needing any JS scroll-listener */
+
 .table-responsive::after{
   content:"";
   position:absolute; top:0; right:0; bottom:0;
@@ -1199,22 +1067,7 @@ tbody td{
 .badge-overspent{ background:var(--danger-bg); color:var(--danger); }
 .badge-balanced{ background:var(--info-bg); color:var(--info); }
 
-/* Totals row. This is a <div class="total-summary-row"> with 5 plain
-   children (label, estimated total, actual total, remaining total, empty
-   trash-column spacer) sitting under — not inside — the <table>. A CSS
-   Grid is used instead of relying on table layout, with column widths
-   tuned to the real proportions of the table above (Category is the
-   widest column because of its icon+input box, Remaining is the
-   narrowest), so each total visually lands under its header:
-     <div class="total-summary-row">
-       <div class="summary-col-label">Total</div>
-       <div>₹14020</div>
-       <div>₹13446</div>
-       <div><span class="text-green">₹574 Saved</span></div>
-       <div></div>
-     </div>
-   The `> *` selector (not `> div`) so this also works untouched if any
-   of those children end up as spans, td, or anything else. */
+
 .total-summary-row{
   display:grid;
   grid-template-columns: 2.7fr 2.3fr 2.3fr 1.6fr 40px;
@@ -1232,9 +1085,7 @@ tbody td{
 }
 .summary-col-label{ color:var(--text-muted); font-family:var(--font-display); font-weight:600; }
 
-/* --------------------------------------------------------------------------
-   13. Days grid — receipt-chit styling + live "today" glow
-   -------------------------------------------------------------------------- */
+
 .days-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
@@ -1270,14 +1121,7 @@ tbody td{
   50%{ box-shadow:0 0 0 1.5px var(--info), 0 10px 30px rgba(46,111,163,0.32); }
 }
 
-/* Locked / future-date state — dims the whole card and swaps in a
-   dashed placeholder instead of the textarea. Add class "is-locked" to
-   the .day-card, and use .locked-placeholder for the notice box:
-     <div class="day-card is-locked">
-       ...
-       <div class="locked-placeholder">🔒 Locked (Future Date)</div>
-     </div>
-*/
+
 .day-card.is-locked{ background:var(--input-bg); }
 .day-card.is-locked:hover{ transform:none; box-shadow:0 8px 20px var(--shadow-color); }
 .locked-placeholder{
@@ -1304,9 +1148,7 @@ tbody td{
   gap:8px 10px;
   margin-bottom:12px;
 }
-/* the date heading — first element inside the header row. Kept compact so
-   "Wednesday, 2 September 2026" reads as a tight two-line block instead of
-   sprawling across three lines in a narrow card. */
+
 .day-header-wrapper > *:first-child{
   font-family:var(--font-display);
   font-size:14.5px;
@@ -1317,7 +1159,7 @@ tbody td{
   min-width:0;
 }
 
-/* "Today" pill gets the same live-ping treatment as the header status dot */
+
 .today-badge, .day-header-wrapper .today-active-label{
   position:relative;
   display:inline-flex;
@@ -1347,9 +1189,7 @@ tbody td{
   100%{ box-shadow:0 0 0 0 rgba(255,255,255,0); }
 }
 
-/* the expense-entry textarea itself: monospace-leaning tabular figures
-   read like a running calculator tape, which fits "70+40+60" better than
-   the default UI font */
+
 .day-card textarea.regular-input{
   min-height:64px;
   resize:vertical;
@@ -1370,8 +1210,7 @@ tbody td{
 }
 .day-total span{ font-weight:700; color:var(--text-main); font-size:15px; }
 
-/* small muted chip for the "(-₹12050 Fixed)" style annotation next to a
-   day's total — wrap that fragment in <span class="fixed-note"> */
+
 .fixed-note{
   font-size:11px;
   font-weight:600;
@@ -1379,12 +1218,7 @@ tbody td{
   margin-inline-start:4px;
 }
 
-/* --------------------------------------------------------------------------
-   14. Over-budget alert — attention-grabbing live pulse
-   (targets the inline-styled alert banner rendered when numIncome/numTarget
-   are set; the app already toggles border/background inline, this adds
-   motion only when it is actually over budget)
-   -------------------------------------------------------------------------- */
+
 .pro-card[style*="var(--danger)"]{
   animation:hb-alert-glow 2.4s var(--ease-fast) infinite;
 }
@@ -1393,14 +1227,6 @@ tbody td{
   50%{ box-shadow:0 8px 32px rgba(193,68,60,0.28); }
 }
 
-/* --------------------------------------------------------------------------
-   15. Live feedback: toast notifications + goal-hit celebration
-   -------------------------------------------------------------------------- */
-/* Toast stack: append a fixed container once,
-   <div class="toast-stack" id="toastStack"></div>, then push
-   <div class="toast toast-success">Category saved</div> children from JS.
-   Remove each toast after ~3s, or add .toast-leaving first for the
-   exit animation, then remove on transitionend. */
 .toast-stack{
   position:fixed;
   left:50%;
@@ -1442,8 +1268,7 @@ tbody td{
   to{ opacity:0; transform:translateY(6px) scale(0.96); }
 }
 
-/* Goal-hit celebration: add .celebrate to a card the instant a savings
-   target or no-spend streak milestone is reached, remove after ~1.2s. */
+
 .celebrate{ animation:hb-celebrate .7s var(--ease-spring); }
 @keyframes hb-celebrate{
   0%{ transform:scale(1); }
@@ -1451,9 +1276,6 @@ tbody td{
   100%{ transform:scale(1); }
 }
 
-/* --------------------------------------------------------------------------
-   16. Utility classes
-   -------------------------------------------------------------------------- */
 .text-red{ color:var(--danger); }
 .text-green{ color:var(--success); }
 .text-blue{ color:var(--info); }
@@ -1466,13 +1288,7 @@ tbody td{
 .mb-40{ margin-bottom:40px; }
 .mt-15{ margin-top:15px; }
 
-/* --------------------------------------------------------------------------
-   17. Responsive — mobile (≤599px) → tablet (600–1023px) → laptop (≥1024px)
-   -------------------------------------------------------------------------- */
 
-/* Hover-only devices: keep the lift/glow micro-interactions here.
-   Touch screens don't have a real ":hover" — without this, a tapped card
-   or button gets "stuck" looking hovered until the user taps elsewhere. */
 @media (hover:none){
   .pro-card:hover{ transform:none; box-shadow:0 10px 26px var(--shadow-color); border-color:var(--border); }
   .day-card:hover{ transform:none; box-shadow:0 8px 20px var(--shadow-color); }
@@ -1486,17 +1302,17 @@ tbody td{
   tbody tr:hover{ background:transparent; }
 }
 
-/* ---- Tablet and down (≤1023px): trade the 2-column pro-grid for 1 ---- */
+
 @media (max-width: 1023px){
   .pro-grid{ grid-template-columns:1fr; }
 }
 
-/* ---- Tablet range (600–1023px): comfortable two-up where it still fits ---- */
+
 @media (min-width: 600px) and (max-width: 1023px){
   .container{ padding-top:28px; }
 }
 
-/* ---- Mobile (≤599px) ---- */
+
 @media (max-width: 599px){
   body{ font-size:14.5px; }
 
@@ -1512,23 +1328,19 @@ tbody td{
   .container{ padding-top:18px; }
   .section-title{ margin:4px 0 12px; }
 
-  /* summary row: two-per-row instead of squeezing four into one line */
+ 
   .dashboard-card{ justify-content:space-between; row-gap:20px; }
   .dash-box{ flex:0 1 calc(50% - 14px); min-width:120px; }
   .streak-display{ flex-basis:100%; }
 
-  /* AI & Pro tools bar: let each action button share the row evenly
-     instead of shrinking to an unreadable width */
+
   .btn-action-tool{ flex:1 1 auto; justify-content:center; text-align:center; }
 
 
-  /* single column so each day's textarea + notes button stay comfortable
-     to tap, rather than squeezed to ~150px */
+
   .days-grid{ grid-template-columns:1fr; }
 
-  /* fixed-budget totals row: drop the empty spacer cell (aligned with the
-     🗑️ column) and lay the four figures out as a clean 2x2 grid, since the
-     narrow 5-column layout gets too cramped on phones */
+ 
   .total-summary-row{
     grid-template-columns:1fr 1fr;
     row-gap:10px;
@@ -1542,27 +1354,25 @@ tbody td{
   .toast-stack{ width:calc(100vw - 24px); bottom:max(14px, env(safe-area-inset-bottom)); }
 }
 
-/* ---- Small phones (≤380px): a little more breathing room trimmed ---- */
+
 @media (max-width: 380px){
   .pro-card, .card, .analytics-card{ border-radius:var(--radius-sm); }
   .btn-action-tool{ font-size:12.5px; padding:8px 12px; }
   .dash-box{ flex:1 1 100%; }
 }
 
-/* ---- Laptop and up (≥1024px): a touch more generous spacing ---- */
+
 @media (min-width: 1024px){
   .container{ padding-top:36px; }
   .pro-card{ padding:24px; }
 }
 
-/* ---- Large desktop (≥1440px): cap line-length-sensitive text areas ---- */
+
 @media (min-width: 1440px){
   .container{ max-width:1240px; }
 }
 
-/* --------------------------------------------------------------------------
-   18. Print (used by the PDF / print buttons)
-   -------------------------------------------------------------------------- */
+
 @media print{
   header, .sidebar, .hamburger-btn, .btn-action-tool, .btn-add, .btn-delete,
   .btn-permanent-delete, .btn-notes, .toast-stack{ display:none !important; }
